@@ -1,0 +1,50 @@
+* {
+  font-family: 'Nunito';
+}
+
+.nk-header-brand .logo-img {
+  filter: brightness(100);
+}
+
+@media (min-width: 992px) {
+
+  .nk-menu-main.nk-menu {
+      padding: 0 0rem;
+  }
+}
+
+.nk-menu-text {
+  font-size: .8rem;
+}
+
+.card .card-inner {
+  position: relative;
+}
+.card.card-with-icon {
+  height: 130px;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.card .card-inner .card-icon {
+  position: absolute;
+  bottom: -15px;
+  right: 0;
+  width: 130px;
+}
+
+.card .card-inner .card-content {
+  width: 70%;
+  position: relative;
+  top: 10px;
+}
+
+.card .card-inner .card-content .card-title, .card .card-inner .card-content .card-subtitle {
+  line-height: 23px;
+  font-family: 'Nunito';
+}
+
+
+.nk-block-des  {
+  font-size: 1rem;
+}
