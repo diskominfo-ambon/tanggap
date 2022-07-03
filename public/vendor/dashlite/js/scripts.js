@@ -14,7 +14,8 @@
       _mobile_nav = 'mobile-menu',
       _header = 'nk-header',
       _header_menu = 'nk-header-menu',
-      _aside = 'nk-aside',
+      _sidebar = 'nk-sidebar',
+      _sidebar_mob = 'nk-sidebar-mobile',
       //breakpoints
   _break = NioApp.Break;
 
@@ -27,7 +28,7 @@
 
 
   NioApp.ClassBody = function () {
-    NioApp.AddInBody(_aside);
+    NioApp.AddInBody(_sidebar);
   }; // ClassInit @v1.0
 
 
@@ -35,12 +36,15 @@
     NioApp.BreakClass('.' + _header_menu, _break.lg, {
       timeOut: 0
     });
-    NioApp.BreakClass('.' + _aside, _break.lg, {
-      timeOut: 0
+    NioApp.BreakClass('.' + _sidebar, _break.lg, {
+      timeOut: 0,
+      classAdd: _sidebar_mob
     });
     $win.on('resize', function () {
       NioApp.BreakClass('.' + _header_menu, _break.lg);
-      NioApp.BreakClass('.' + _aside, _break.lg);
+      NioApp.BreakClass('.' + _sidebar, _break.lg, {
+        classAdd: _sidebar_mob
+      });
     });
   }; // Code Prettify @v1.0
 
@@ -242,7 +246,7 @@
     },
         attr = opt ? extend(def, opt) : def;
     $(imenu).on('click', function (e) {
-      if (NioApp.Win.width < _break.lg || $(this).parents().hasClass(_aside)) {
+      if (NioApp.Win.width < _break.lg || $(this).parents().hasClass(_sidebar)) {
         NioApp.Toggle.dropMenu($(this), attr);
       }
 
@@ -256,14 +260,14 @@
         $toggle = $(toggle),
         $contentD = $('[data-content]'),
         toggleBreak = $contentD.hasClass(_header_menu) ? _break.lg : _break.xl,
-        toggleOlay = _header + '-overlay',
+        toggleOlay = _sidebar + '-overlay',
         toggleClose = {
       profile: true,
       menu: false
     },
         def = {
       active: 'toggle-active',
-      content: _header + '-active',
+      content: _sidebar + '-active',
       body: 'nav-shown',
       overlay: toggleOlay,
       "break": toggleBreak,

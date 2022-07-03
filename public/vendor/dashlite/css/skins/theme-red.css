@@ -5,6 +5,16 @@
  * Author: Softnio
  * Author URI: http://themeforest.net/user/softnio
 **/
+.nk-sidebar.is-dark { background: #0f192a; border-right-color: #1c2f50; }
+
+.nk-sidebar.is-theme { background: #5f2525; border-right-color: #833333; }
+
+.is-dark .nk-sidebar-head { border-color: #1c2f50; }
+
+.is-theme .nk-sidebar-head { border-color: #833333; }
+
+.nk-sidebar.is-dark .user-balance-alt, .nk-sidebar.is-theme .user-balance-alt { color: rgba(255, 255, 255, 0.8); }
+
 .nk-header { background: #f5f6fa; border-bottom-color: #e5e9f2; }
 
 .nk-header.is-dark:not([class*=bg-]) { background: #0f192a; }
@@ -19,7 +29,13 @@
 
 .is-dark .nk-menu-sub .active > .nk-menu-link, .is-dark .nk-menu-link:hover, .is-dark .active > .nk-menu-link, .is-dark .nk-menu-link:hover .nk-menu-icon, .is-dark .nk-menu-item.active > .nk-menu-link .nk-menu-icon, .is-dark .nk-menu-item.current-menu > .nk-menu-link .nk-menu-icon { color: #e8757d; }
 
-.is-dark .user-name { color: #90a1b8; }
+.is-dark .nk-news-icon .icon { color: #e14954; }
+
+.is-dark .nk-news-text .icon { color: #8094ae; }
+
+.is-dark .nk-news-text p span { color: rgba(128, 148, 174, 0.9); }
+
+.is-dark .user-name, .is-dark .nk-news-text p { color: #90a1b8; }
 
 .is-dark .nk-quick-nav-icon { color: #9faec2; }
 
@@ -29,13 +45,15 @@
 
 .is-theme .nk-menu-badge { color: #f7cccf; background: #833333; }
 
-.is-theme .nk-quick-nav-icon, .is-theme .overline-title { color: #f5bfc3; }
+.is-theme .nk-news-icon .icon { color: #ec8b92; }
 
-.is-theme .nk-menu-heading .overline-title { color: rgba(245, 191, 195, 0.8); }
+.is-theme .nk-news-text .icon, .is-theme .nk-quick-nav-icon, .is-theme .overline-title { color: #f5bfc3; }
 
-.is-theme .user-name { color: #f8d5d8; }
+.is-theme .nk-news-text p span, .is-theme .nk-menu-heading .overline-title { color: rgba(245, 191, 195, 0.8); }
 
-.card-tools-nav li a:before, .nav-tabs .nav-link:after, .progress-bar, .dot-primary, .alert-fill.alert-primary, .badge-primary, .icon-circle, .noUi-connect, .nk-kycfm-label::after, .sp-package-choose ~ label:after, .ticket-msg-attach-list a .icon, .nk-msg-menu-item a:after, .ui-softy .nk-msg-item.active:after, .ui-softy .nk-msg-item.current:after { background: #e14954; }
+.is-theme .user-name, .is-theme .nk-news-text p { color: #f8d5d8; }
+
+.card-tools-nav li a:before, .nav-tabs .nav-link:after, .progress-bar, .dot-primary, .alert-fill.alert-primary, .badge-primary, .icon-circle, .noUi-connect, .nk-msg-menu-item a:after, .ui-shady .nk-msg-item.active:after, .ui-shady .nk-msg-item.current:after, .ui-softy .nk-msg-item.active:after, .ui-softy .nk-msg-item.current:after { background: #e14954; }
 
 .card-bordered.is-dark { border-color: #662828; }
 
@@ -43,7 +61,9 @@
 
 .user-avatar, [class^="user-avatar"]:not([class*="-group"]) { background: #e8757d; }
 
-.nk-menu-link:hover, .nk-menu-link:hover .nk-menu-icon, .nk-menu-item.active > .nk-menu-link .nk-menu-icon, .nk-menu-item.current-menu > .nk-menu-link .nk-menu-icon, .nk-menu-link:hover .count, .nk-menu-sub .nk-menu-link:hover, .nk-menu-sub .active > .nk-menu-link, .nk-menu-sm .nk-menu-link:hover, .nk-menu-main .nk-menu-link:hover, .nk-menu-main .nk-menu-link:focus, .nk-menu-main .nk-menu-item.active > .nk-menu-link, .nk-menu-main .nk-menu-item.current-menu > .nk-menu-link, .nk-menu-main .nk-menu-item:hover > .nk-menu-link, .is-light .nk-menu-link:hover, .is-light .active > .nk-menu-link, .active > .nk-menu-link, .active > .nk-menu-link .count, .nav-tabs .nav-link:focus, .nav-tabs .nav-link.active, .nav-tabs .nav-item.active .nav-link, .nk-menu-footer .nk-menu-icon, .nk-menu-footer .nk-menu-link:hover, .nk-footer-copyright a:hover, .page-link:hover, .list-plain a:hover, .link-check li a:hover, .link-list a:hover, .link-list-opt a:hover, .link-list-plain a:hover, .link-list-menu li.active > a, .link-list-menu a.active, .link-list-menu a:hover, .link-list-menu li.active > a .icon, .link-list-menu a.active .icon, .link-list-menu a:hover .icon, .link-list-menu li.active > a:after, .link-list-menu a.active:after, .link-list-menu a:hover:after, .list-checked li:before, .list-step li.list-step-current:before, .accordion-s2 .accordion-head .title, .accordion-s3 .accordion-head .title, .badge-outline-primary, .badge-dim.badge-primary, .badge-dot.badge-primary, .badge-dim.badge-outline-primary, .alert-primary, .form-clip, .form-text-hint, .search-submit:hover, .nk-wg1-amount .amount, .nk-kycfm-control:checked ~ .nk-kycfm-label .label-icon, .attach-item .icon, .attach-download:hover span, .ticket-meta .ticket-id strong, .tb-ticket-id, .tb-ftr-plan .icon, .support-topic-details h3, .support-topic-details h4, .support-topic-count, .invoice-desc .title, .invoice-bills .table th, .invoice-contact ul .icon, .nk-reply-meta-info .whom, .nk-msg-tags li > span .icon, .nk-msg-menu-item a:hover, .nk-msg-menu-item.active a, .user-balance, .user-avatar[class*="-primary-dim"], .dropzone .dz-message-text span, a, .nk-switch-icon.active, .link-list-plain a .icon, .chat-upload-option a, .is-unread .chat-context .status, .add-opt:hover .sub-text, .add-opt:hover .icon, .icon[class*="bg-primary-dim"] { color: #e14954; }
+.nk-news-item:hover .nk-news-text .icon { color: #e8757d; }
+
+.nk-menu-link:hover, .nk-menu-link:hover .nk-menu-icon, .nk-menu-item.active > .nk-menu-link .nk-menu-icon, .nk-menu-item.current-menu > .nk-menu-link .nk-menu-icon, .nk-menu-link:hover .count, .nk-menu-sub .nk-menu-link:hover, .nk-menu-sub .active > .nk-menu-link, .nk-menu-sm .nk-menu-link:hover, .nk-menu-main .nk-menu-link:hover, .nk-menu-main .nk-menu-link:focus, .nk-menu-main .nk-menu-item.active > .nk-menu-link, .nk-menu-main .nk-menu-item.current-menu > .nk-menu-link, .nk-menu-main .nk-menu-item:hover > .nk-menu-link, .is-light .nk-menu-link:hover, .is-light .active > .nk-menu-link, .active > .nk-menu-link, .active > .nk-menu-link .count, .nav-tabs .nav-link:focus, .nav-tabs .nav-link.active, .nav-tabs .nav-item.active .nav-link, .nk-menu-footer .nk-menu-icon, .nk-menu-footer .nk-menu-link:hover, .nk-footer-copyright a:hover, .page-link:hover, .list-plain a:hover, .link-check li a:hover, .link-list a:hover, .link-list-opt a:hover, .link-list-plain a:hover, .link-list-menu li.active > a, .link-list-menu a.active, .link-list-menu a:hover, .link-list-menu li.active > a .icon, .link-list-menu a.active .icon, .link-list-menu a:hover .icon, .link-list-menu li.active > a:after, .link-list-menu a.active:after, .link-list-menu a:hover:after, .list-checked li:before, .list-step li.list-step-current:before, .accordion-s2 .accordion-head .title, .accordion-s3 .accordion-head .title, .badge-outline-primary, .badge-dim.badge-primary, .badge-dot.badge-primary, .badge-dim.badge-outline-primary, .alert-primary, .form-clip, .form-text-hint, .search-submit:hover, .nk-news-icon .icon, .attach-item .icon, .attach-download:hover span, .nk-reply-meta-info .whom, .nk-msg-tags li > span .icon, .nk-msg-menu-item a:hover, .nk-msg-menu-item.active a, .user-balance, .user-avatar[class*="-primary-dim"], .nk-order-ovwg-data.sell .amount, .nk-order-ovwg-data.sell .title .icon, .nk-wg-action-content p strong, a, .dropzone .dz-message-text span, .nk-switch-icon.active, .link-list-plain a .icon, .chat-upload-option a, .is-unread .chat-context .status, .add-opt:hover .sub-text, .add-opt:hover .icon, .icon[class*="bg-primary-dim"] { color: #e14954; }
 
 a:hover { color: #db2633; }
 
@@ -63,11 +83,13 @@ a:hover { color: #db2633; }
 
 .alert-primary, .badge-dim.badge-outline-primary { background-color: #fcedee; border-color: #f3b6bb; }
 
-.alert-pro.alert-primary, .badge-primary, .sp-package-choose:checked ~ label, .form-control:focus, .form-control.focus, .custom-file-input:focus ~ .custom-file-label, .custom-control-input:focus:not(:checked) ~ .custom-control-label::before, .select2-container--default .select2-selection--single:focus, .select2-container--default.select2-container--focus .select2-selection--multiple { border-color: #e14954; }
+.alert-pro.alert-primary, .badge-primary, .form-control:focus, .form-control.focus, .custom-file-input:focus ~ .custom-file-label, .custom-control-input:focus:not(:checked) ~ .custom-control-label::before, .select2-container--default .select2-selection--single:focus, .select2-container--default.select2-container--focus .select2-selection--multiple { border-color: #e14954; }
 
-.badge-outline-primary { border-color: #f3b6bb; }
+.nk-order-ovwg-data.sell, .badge-outline-primary { border-color: #f3b6bb; }
 
 .dropdown-menu-s1 { border-top-color: #e14954; }
+
+.nk-iv-wg2-amount.ui-v2 { border-bottom-color: #e14954; }
 
 .page-item.active .page-link, .custom-control-input:checked ~ .custom-control-label::before, .custom-control-input:not(:disabled):active ~ .custom-control-label::before { background-color: #e14954; border-color: #e14954; }
 
@@ -133,7 +155,9 @@ a:hover { color: #db2633; }
 
 .nk-menu-badge { color: #ea8087; background-color: #fcedee; }
 
-.is-theme .sub-text, .is-theme .lead-text span { color: #f5bfc3; }
+.is-theme .nk-sidebar-footer, .is-theme .nk-sidebar-profile-fixed { background: #5f2525; border-color: #833333; }
+
+.is-theme .nk-menu-footer .nk-menu-link, .is-theme .sub-text, .is-theme .lead-text span { color: #f5bfc3; }
 
 .nav-switch-s2 .nav-link:hover, .nav-switch-s2 .nav-link:focus { color: #526484; }
 

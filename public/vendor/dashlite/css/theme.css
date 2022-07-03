@@ -11,10 +11,47 @@
   .nk-menu-main.nk-menu {
       padding: 0 0rem;
   }
+  .nk-header-brand {
+    margin-right: .9rem;
+  }
 }
 
-.nk-menu-text {
-  font-size: .8rem;
+.nk-menu-sub .nk-menu-item .nk-menu-link .icon {
+  display: block;
+  margin-right: .3rem;
+}
+.nk-menu-sub .nk-menu-item .nk-menu-link .nk-menu-text {
+  font-size: .9rem;
+
+  display: inline-block;
+}
+
+.nk-menu-sub .nk-menu-item .nk-menu-link {
+  display: flex;
+  align-items: center;
+  color: #526484 !important;
+}
+
+
+.nk-menu-item {
+  padding: 0 1rem !important;
+}
+
+.nk-menu-link {
+  display: flex;
+}
+
+.nk-menu-link .nk-menu-text {
+  display: inline-block;
+  margin-left: .3rem;
+  font-size: 1rem;
+}
+
+.nk-menu-link .icon {
+  font-size: 1.1rem;
+  display: inline-block;
+  position: relative;
+  top: -.1rem;
 }
 
 .card .card-inner {
@@ -47,4 +84,13 @@
 
 .nk-block-des  {
   font-size: 1rem;
+}
+
+.select2 .selection .select2-selection {
+  height: calc(2.625rem + 2px) !important;
+}
+.select2-selection .select2-selection__rendered {
+  display: flex;
+  align-items: center;
+  min-height: 100%;
 }

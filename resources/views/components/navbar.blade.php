@@ -25,29 +25,13 @@
               </div>
               <ul class="nk-menu nk-menu-main ui-s2">
                   <li class="nk-menu-item">
-                      <a href="#" class="nk-menu-link">
-                        <span class="nk-menu-text">Beranda</span>
+                      <a href="{{ route('government.task.home') }}" class="nk-menu-link">
+                        <em class="icon ni ni-book"></em>  <span class="nk-menu-text">Task</span>
                       </a>
-                  </li><!-- .nk-menu-item -->
-                  <li class="nk-menu-item has-sub">
-                      <a href="#" class="nk-menu-link nk-menu-toggle">
-                          <span class="nk-menu-text">Task</span>
-                      </a>
-                      <ul class="nk-menu-sub">
-                          <li class="nk-menu-item">
-                              <a href="html/apps-messages.html" class="nk-menu-link"><span class="nk-menu-text">Buat task baru</span></a>
-                          </li>
-                          <li class="nk-menu-item">
-                              <a href="html/apps-inbox.html" class="nk-menu-link"><span class="nk-menu-text">Semua daftar task</span></a>
-                          </li>
-                          <li class="nk-menu-item">
-                              <a href="html/apps-file-manager.html" class="nk-menu-link"><span class="nk-menu-text">Tracking task</span></a>
-                          </li>
-                      </ul><!-- .nk-menu-sub -->
                   </li><!-- .nk-menu-item -->
                   <li class="nk-menu-item">
                       <a href="#" class="nk-menu-link">
-                          <span class="nk-menu-text">Hadiah</span>
+                        <em class="icon ni ni-gift"></em><span class="nk-menu-text">Hadiah</span>
                       </a>
                   </li><!-- .nk-menu-item -->
 

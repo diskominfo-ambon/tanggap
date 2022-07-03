@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TaskUpdatedController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,8 +17,13 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('internal.opd.dashboard');
+  return view('government.home');
 });
+
+
+Route::get('/gettask', TaskController::class);
+
+Route::put('/tasks/update', TaskUpdatedController::class)->name('task.updated');
 
 Auth::routes();
 
