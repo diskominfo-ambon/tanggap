@@ -43,6 +43,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/internal/staff.php'));
 
           Route::middleware(['web'])
+            ->prefix('/opd')
             ->group(base_path('routes/internal/government.php'));
         });
     }

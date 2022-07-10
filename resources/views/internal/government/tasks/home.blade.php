@@ -106,10 +106,8 @@
               <div class="nk-tb-list nk-tb-ulist">
                   <div class="nk-tb-item nk-tb-head">
 
-                      <div class="nk-tb-col"><span class="sub-text">Pelapor</span></div>
-                      <div class="nk-tb-col tb-col-md"><span class="sub-text">Dilaporkan pada</span></div>
-                      <div class="nk-tb-col tb-col-md"><span class="sub-text">Judul</span></div>
-                      <div class="nk-tb-col tb-col-sm"><span class="sub-text">Status</span></div>
+                      <div class="nk-tb-col"><span class="sub-text fw-bold text-secondary">Tanggung jawab & Dilaporkan oleh</span></div>
+                      <div class="nk-tb-col tb-col-md"><span class="sub-text fw-bold text-secondary">Judul masalah</span></div>
                       <div class="nk-tb-col nk-tb-col-tools text-right">
                           <div class="dropdown">
                               <a href="#" class="btn btn-xs btn-outline-light btn-icon dropdown-toggle" data-toggle="dropdown" data-offset="0,5"><em class="icon ni ni-plus"></em></a>
@@ -147,37 +145,46 @@
                   @foreach($tasks as $task)
                   <div class="nk-tb-item">
                       <div class="nk-tb-col">
+                        <div class="d-block">
                           <div class="user-card">
                               <div class="user-avatar xs bg-primary">
                                 <em class="icon ni ni-user-fill"></em>
                               </div>
                               <div class="user-name">
-                                  <span class="tb-lead fw-bold">{{ $task->user->name }}</span>
-                                  <span class="fw-normal">{{ $task->user->employee_type }} • {{ $task->user->employee_degree }}</span>
+                                  <span class="tb-lead fw-bold">{{ $task->assignment()->name }}</span>
+                                  <span class="fw-normal">{{ $task->assignment()->employee_type }} • {{ $task->assignment()->employee_degree }}</span>
                               </div>
                           </div>
-                      </div>
-                      <div class="nk-tb-col tb-col-md">
-                          <span>{{ $task->created_full_diff_humans }}</span>
+                        </div>
+                        <div class="d-block mt-2">
+                          <div class="user-card">
+                            <div class="user-avatar xs bg-secondary">
+                              <em class="icon ni ni-user-fill"></em>
+                            </div>
+                            <div class="user-name">
+                                <span class="tb-lead fw-bold">{{ $task->user->name }}</span>
+                                <span class="fw-normal">{{ $task->user->employee_type }} • {{ $task->user->employee_degree }}</span>
+                            </div>
+                        </div>
+                        </div>
                       </div>
 
                       <div class="nk-tb-col tb-col-lg">
-                          <span>
+                          <span class="d-block tb-lead fw-bold fs-14px mb-1">
                             {{ Str::of( $task->title)->ucfirst()->limit(35) }}
                           </span>
+                          <span class="fw-normal fs-12px">Di tambahkan pada {{ $task->created_at }}</span> dan tangani <span class="fw-normal fs-12px">{{ $task->assignment()->created_at }}</span>
                       </div>
-                      <div class="nk-tb-col">
-                          <span class="tb-status text-success">Telah selesai</span>
-                      </div>
+
                       <div class="nk-tb-col nk-tb-col-tools">
                           <ul class="nk-tb-actions gx-2">
                               <li>
-                                  <a href="#" class="btn btn-sm btn-icon btn-trigger" data-toggle="tooltip" data-placement="top" title="Send Email">
+                                  <a href="{{ route('government.task.edit', $task->id) }}" class="btn btn-sm btn-icon btn-trigger" data-toggle="tooltip" data-placement="top" title="Ubah task">
                                       <em class="icon ni ni-pen-fill"></em>
                                   </a>
                               </li>
                               <li>
-                                  <a href="#" class="btn btn-sm btn-icon btn-trigger" data-toggle="tooltip" data-placement="top" title="Suspend">
+                                  <a href="#" class="btn btn-sm btn-icon btn-trigger" data-toggle="tooltip" data-placement="top" title="Hapus task">
                                       <em class="icon ni ni-trash-fill"></em>
                                   </a>
                               </li>

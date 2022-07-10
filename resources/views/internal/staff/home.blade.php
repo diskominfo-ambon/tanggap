@@ -28,20 +28,6 @@
   <div class="col-lg-4 col-sm-12 col-xs-12">
     <div class="card card-with-icon card-bordered">
       <div class="card-inner">
-          <img class="card-icon" src="{{ asset(env('ASSET_PATH_VENDOR')) . '/images/icons/help-desk.svg' }}" alt="task-done" />
-          <div class="card-content">
-            <h5 class="card-title">Buat task</h5>
-            <h6 class="card-subtitle mb-2">
-              Kamu punya task yang ingin dilaporkan?
-            </h6>
-          </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-4 col-sm-12 col-xs-12">
-    <div class="card card-with-icon card-bordered">
-      <div class="card-inner">
           <img class="card-icon" src="{{ asset(env('ASSET_PATH_VENDOR')) . '/images/icons/doc-checked.svg' }}" alt="task-done" />
           <div class="card-content">
             <h5 class="card-title">{{ count($tasks) }} Task</h5>

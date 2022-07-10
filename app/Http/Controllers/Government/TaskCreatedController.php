@@ -24,12 +24,13 @@ class TaskCreatedController extends Controller
     $task = new Task();
     $task->title = $req->title;
     $task->content = $req->content;
+    $task->user_id = 1;
 
     $task->save();
 
-    $tagIds = $req->tags;
-    $task->getTags()->attach($tagIds);
+    // $tagIds = $req->tags;
+    // $task->getTags()->attach($tagIds);
 
-    return redirect()->route('')->with('flash', __('Berhasil menambahkan task baru'));
+    return redirect()->route('government.tasks.home')->with('flash', __('Berhasil menambahkan task baru'));
   }
 }

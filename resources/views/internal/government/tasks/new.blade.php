@@ -45,8 +45,6 @@
                               </div>
                           </div>
                       </div>
-
-
                       <textarea id="editor" name="content">{{ old('content') }}</textarea>
                       @error('content')
                       <span class="d-block text-danger mb-3 mt-1">{{ $message }}</span>

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Task extends Model
 {
@@ -26,6 +27,9 @@ class Task extends Model
 
   public const StatusDone = 5;
 
+
+  protected $fillable = ['id'];
+
   protected $appends = [
     'createdDiffHumans'
   ];
@@ -39,6 +43,17 @@ class Task extends Model
 
   }
 
+
+  public function getGetStatusStringAttribute(): string {
+    switch ($this->status) {
+      case Task::StatusInReview:
+        return "Sedang ditanggapin oleh admin";
+      case Task::StatusDone:
+        return "Telah selesai";
+      default:
+        return "Sedang ditangani";
+    }
+  }
 
   public function getCreatedDiffHumansAttribute(): string
   {
@@ -58,6 +73,11 @@ class Task extends Model
   public function scopeStatusIn(Builder $builder, array $status): Builder
   {
     return $builder->whereIn('status', $status);
+  }
+
+  public function scopeFindSlug(Builder $builder, string $slug): Builder
+  {
+    return $builder->whereSlug($slug);
   }
 
   public function tags(): MorphToMany
@@ -81,5 +101,17 @@ class Task extends Model
 
   public function user(): BelongsTo {
     return $this->belongsTo(User::class);
+  }
+
+  public function getAssignments(): BelongsToMany
+  {
+    return $this->belongsToMany(User::class, Assignment::TableName, 'task_id', 'user_id')
+      ->using(Assignment::class)
+      ->withPivot(['id', 'created_at', 'updated_at']);
+  }
+
+  public function assignment(): User
+  {
+    return $this->getAssignments()->first();
   }
 }

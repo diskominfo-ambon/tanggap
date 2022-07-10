@@ -36,6 +36,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'employee_type',
+        'employee_degree',
     ];
 
     /**
@@ -65,7 +67,7 @@ class User extends Authenticatable
 
 
     public function getAssignments(): BelongsToMany {
-      return $this->belongsToMany(Task::class, Assignment::TableName)->using(Assignment::class);
+      return $this->belongsToMany(Task::class, Assignment::TableName, 'user_id', 'task_id')->using(Assignment::class);
     }
 
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->onDelete('cascade');
             $table->foreignId('task_id')->onDelete('cascade');
-            $table->tinyInteger('status')->default(Task::StatusBacklog);
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

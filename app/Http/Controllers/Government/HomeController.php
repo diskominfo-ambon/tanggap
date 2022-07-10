@@ -12,7 +12,6 @@ class HomeController extends Controller
   {
     $tasks = Task::StatusIn([Task::StatusDone])->get();
 
-
     // $tasks = Auth::user()->getAssignments()->StatusIn([Task::StatusDone])->latest()->get();
 
     return view('government.home', compact('tasks'));

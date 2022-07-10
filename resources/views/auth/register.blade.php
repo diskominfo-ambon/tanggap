@@ -29,7 +29,7 @@
                             <label for="employee_degree" class="col-md-4 col-form-label text-md-end">{{ __('Pendidikan terakhir') }}</label>
 
                             <div class="col-md-6">
-                                <input id="employee_degree" type="employee_degree" class="form-control @error('employee_degree') is-invalid @enderror" name="employee_degree" value="{{ old('employee_degree') }}" required autocomplete="employee_degree">
+                                <input id="employee_degree" type="text" class="form-control @error('employee_degree') is-invalid @enderror" name="employee_degree" value="{{ old('employee_degree') }}" required autocomplete="employee_degree">
 
                                 @error('employee_degree')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                           <label for="employee_type" class="col-md-4 col-form-label text-md-end">{{ __('Jabatan') }}</label>
 
                           <div class="col-md-6">
-                              <input id="employee_type" type="employee_type" class="form-control @error('employee_type') is-invalid @enderror" name="employee_type" value="{{ old('employee_type') }}" required autocomplete="employee_type">
+                              <input id="employee_type" type="text" class="form-control @error('employee_type') is-invalid @enderror" name="employee_type" value="{{ old('employee_type') }}" required autocomplete="employee_type">
 
                               @error('employee_type')
                                   <span class="invalid-feedback" role="alert">

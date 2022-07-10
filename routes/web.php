@@ -16,15 +16,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-  return view('government.home');
-});
-
-
 Route::get('/gettask', TaskController::class);
 
 Route::put('/tasks/update', TaskUpdatedController::class)->name('task.updated');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/laporan/lihat/{slug}', TaskShowController::class)->name('task.show');

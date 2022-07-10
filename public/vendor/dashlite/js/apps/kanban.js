@@ -2,7 +2,6 @@
 
 !function (NioApp, $) {
   "use strict"; // Variable
-
   var $win = $(window),
       $body = $('body'),
       breaks = NioApp.Break;
@@ -35,7 +34,7 @@
 
       return {
         title:`
-        <div class="kanban-item-title" data-status="${status}">
+        <div class="kanban-item-title" data-status="${status}" data-task="${task.id}" data-slug="${task.slug}">
             <h6 class="title">${capfirst(task.title, 35)}</h6>
             <div class="drodown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -78,16 +77,31 @@
       }
     }
 
+
+    function increseTotalBoard(source, target) {
+      let sourceTotal = source.querySelector('.kanban-board-header span.text-dark').textContent;
+      let targeTotal = target.querySelector('.kanban-board-header span.text-dark').textContent;
+
+      source.querySelector('.kanban-board-header span.text-dark').innerText = parseInt(sourceTotal) - 1;
+      target.querySelector('.kanban-board-header span.text-dark').innerText = parseInt(targeTotal) + 1;
+    }
+
     const StatusBacklog = 2;
-
     const StatusOnProgress = 3;
-
     const StatusInReview = 4;
-
     const StatusDone = 5;
-    const Endpoint = window.location.origin.trimEnd('/') + '/gettask';
+    const BoardBacklog = "_backlog";
+    const BoardOnProgress = "_in_progress";
+    const BoardInReview = "_to_review";
     const HttpMethod = 'GET'
+    const GovernmentRole = 'government';
 
+    const Endpoint = window.location.origin.trimEnd('/') + '/gettask';
+    let boardStatus = {
+      [BoardBacklog]: StatusBacklog,
+      [BoardInReview]: StatusInReview,
+      [BoardOnProgress]: StatusOnProgress
+    };
     // initialize board.
     let boards = {
       [StatusBacklog]: {
@@ -147,19 +161,20 @@
 
 
         const kanbanBoards = Object.values(boards);
+        const dragableItems = role === GovernmentRole ? false : true;
 
         const kanban = new jKanban({
           element: '#kanban',
           gutter: '0',
           widthBoard: '350px',
           responsivePercentage: false,
+          dragBoards: false,
+          dragItems: dragableItems,
           boards: [...kanbanBoards],
-          click: function () {
-            console.log('click');
-          },
-          dragEl: function () {
-            console.log('dragEl');
-            // return false;
+          click: function (el) {
+            const board = el.children[0].dataset;
+            const Endpoint = window.location.href + "/laporan/lihat/" + board.slug;
+            window.location.href  = Endpoint;
           },
           dropEl: function (el, target, source, sibling) {
             const board = el.children[0].dataset;
@@ -174,6 +189,42 @@
               // Swal.fire('Task tidak dapat dipindahkan!');
               return false;
             }
+            const taskID = parseInt(board.task);
+            const boardEl = target.parentNode;
+            const boardElSource = source.parentNode;
+
+            increseTotalBoard(boardElSource, boardEl);
+
+            // updated with ajax
+            const Endpoint = window.location.origin + "/tasks/update";
+            const HttpMethod = "PUT";
+            const data = {
+              id: taskID,
+              board: boardEl.dataset.id,
+              statusSource: parseInt(board.status),
+              statusTarget: boardStatus[boardEl.dataset.id]
+            };
+
+            console.log(data, boardEl.dataset);
+
+            $.ajax({
+              url: Endpoint,
+              method: HttpMethod,
+              data: data,
+              success: function (res) {
+                toastr.clear();
+                NioApp.Toast('Berhasil mengubah status.', 'success', {
+                  position: 'top-center'
+                });
+
+                console.log(res);
+              },
+              error: function () {
+                NioApp.Toast('Gagal mengubah status.', 'error', {
+                  position: 'top-center'
+                });
+              },
+            })
 
           },
 

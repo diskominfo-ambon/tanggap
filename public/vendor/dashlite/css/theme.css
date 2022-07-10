@@ -94,3 +94,21 @@
   align-items: center;
   min-height: 100%;
 }
+
+.card-radio {
+  background-color: white !important;
+  display: block;
+  padding: .7rem;
+  border: 1px solid #dbdfea;
+  border-radius: 3px;
+  margin-bottom: .8rem;
+}
+
+.card-radio:last-child {
+  margin-bottom: 0;
+}
+
+.card-radio label {
+  position: relative;
+  left: 40px;
+}

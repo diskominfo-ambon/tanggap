@@ -12,18 +12,22 @@ class TaskUpdatedController extends Controller
   public function __invoke(Request $req)
   {
     $req->validate([
-      'id' => 'required|numeric',
-      'status' => 'required|numeric'
+      'id' => 'required',
+      'board' => 'required', // board target.
+      'statusSource' => 'required|numeric',
+      'statusTarget' => 'required|numeric',
     ]);
 
-    $taskID = $req->id;
-    $status = $req->status;
+    $taskID = (int) $req->id;
+    $status = (int) $req->statusTarget;
 
     $task = Task::findOrFail($taskID);
-    $task->update(
-      compact('status')
-    );
+    $task->status = $status;
+    $task->save();
 
-    return new JsonResponse(['status' => __('Berhasil')], Response::HTTP_OK);
+    $pivot = $task->getAssignments[0]->pivot;
+    $task->getAssignments()->updateExistingPivot($pivot->id, ['created_at' => now()]);
+
+    return new JsonResponse(['status' => __('Berhasil'), 'task' => $task ], Response::HTTP_OK);
   }
 }

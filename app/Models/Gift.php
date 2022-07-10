@@ -10,13 +10,13 @@ class Gift extends Model
 {
   use HasFactory;
 
-  public const TypeThanks = 1;
+  public const Thanks = 1;
 
-  public const TypeGoodJob = 2;
+  public const GoodJob = 2;
 
-  public const TypeGoodPartner = 3;
+  public const GoodPartner = 3;
 
-  public const TypeAmazing = 4;
+  public const Amazing = 4;
 
 
   public function scopeFrom(Builder $builder, User $user): Builder {
