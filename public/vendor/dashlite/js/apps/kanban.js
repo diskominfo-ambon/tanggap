@@ -161,7 +161,7 @@
 
 
         const kanbanBoards = Object.values(boards);
-        const dragableItems = role === GovernmentRole ? false : true;
+        const dragableItems = _CurrentRole === GovernmentRole ? false : true;
 
         const kanban = new jKanban({
           element: '#kanban',

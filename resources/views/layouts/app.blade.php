@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="auth-role" content="{{ Auth::user()->roles[0]->name }}">
+    @if($hasCurrentUser && $currentUser->roles->count() > 0)
+    <meta name="auth-role" content="{{ $curr->roles[0]?->name }}">
+    @endif
     <meta name="description" content="">
     <!-- Page Title  -->
     <title>@yield('title')</title>
@@ -46,6 +48,8 @@
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
     });
+
+    window._CurrentRole = $('meta[name="auth-role"]').attr('content') ||  "";
   </script>
   @yield('script')
 </body>
