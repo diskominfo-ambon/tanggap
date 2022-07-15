@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Buat akun') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -94,6 +94,11 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Buat akun') }}
                                 </button>
+                                @if (Route::has('login'))
+                                    <a class="btn btn-light" href="{{ route('login') }}">
+                                        {{ __('Login') }}
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </form>
