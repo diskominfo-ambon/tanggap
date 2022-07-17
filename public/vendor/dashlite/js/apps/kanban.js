@@ -166,7 +166,7 @@
         const kanban = new jKanban({
           element: '#kanban',
           gutter: '0',
-          widthBoard: '350px',
+          widthBoard: '413px',
           responsivePercentage: false,
           dragBoards: false,
           dragItems: dragableItems,

@@ -45,7 +45,7 @@
                               </div>
                           </div>
                       </div>
-                      <textarea id="editor" name="content">{{ old('content') }}</textarea>
+                      <textarea id="editor"  placeholder="Deskripsikan masalah Anda disini" name="content">{{ old('content') }}</textarea>
                       @error('content')
                       <span class="d-block text-danger mb-3 mt-1">{{ $message }}</span>
                       @enderror
@@ -84,12 +84,27 @@
 
 
 @section('script')
-<script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+{{-- <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/ckeditor5-build-classic-custom-simpleuploadadapter@28.0.0/build/ckeditor.min.js"></script>
 <script>
-  ClassicEditor
-    .create( document.querySelector( '#editor' ) )
-    .catch( error => {
-        console.error( error );
-    } );
+  $(document).ready(() => {
+    const STORAGE_ENDPOINT = window.location.origin + "/upload";
+    const TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+    ClassicEditor
+      .create( document.querySelector( '#editor' ), {
+        simpleUpload: {
+          uploadUrl: STORAGE_ENDPOINT,
+          withCredentials: true,
+          headers: {
+            'X-CSRF-TOKEN': TOKEN,
+          },
+        }
+      })
+      .catch( error => {
+          console.error( error );
+      } );
+  });
+
 </script>
 @endsection

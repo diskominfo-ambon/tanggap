@@ -43,10 +43,6 @@ class LoginController extends Controller
       $currentRole = Auth::user()->roles()->first();
       $to = "";
 
-      if ($currentUser->hasRole(User::Government)) {
-        return RouteServiceProvider::GovernmentHome;
-      } 
-
       switch ($currentRole) {
         case User::Government:
           $to = RouteServiceProvider::GovernmentHome;
@@ -60,7 +56,7 @@ class LoginController extends Controller
       }
 
 
-      return $to; 
+      return $to;
     }
 
 

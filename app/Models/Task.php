@@ -72,7 +72,7 @@ class Task extends Model
 
   public function scopeStatusIn(Builder $builder, array $status): Builder
   {
-    return $builder->whereIn('status', $status);
+    return $builder->whereIn('tasks.status', $status);
   }
 
   public function scopeFindSlug(Builder $builder, string $slug): Builder

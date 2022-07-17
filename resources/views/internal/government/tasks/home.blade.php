@@ -14,7 +14,7 @@
               <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
               <div class="toggle-expand-content" data-content="pageMenu">
                   <ul class="nk-block-tools g-3">
-                      <li><a href="{{ route('government.task.new') }}" class="btn btn-white btn-outline-light"><em class="icon ni ni-book"></em><span>Task</span></a></li>
+                      <li><a href="{{ route('government.task.new') }}" class="btn btn-white btn-outline-primary"><em class="icon ni ni-book"></em><span>Buat Task</span></a></li>
                   </ul>
               </div>
           </div><!-- .toggle-wrap -->
@@ -106,8 +106,8 @@
               <div class="nk-tb-list nk-tb-ulist">
                   <div class="nk-tb-item nk-tb-head">
 
-                      <div class="nk-tb-col"><span class="sub-text fw-bold text-secondary">Tanggung jawab & Dilaporkan oleh</span></div>
-                      <div class="nk-tb-col tb-col-md"><span class="sub-text fw-bold text-secondary">Judul masalah</span></div>
+                      <div class="nk-tb-col"><span class="sub-text fw-bold text-soft">Tanggung jawab & Dilaporkan oleh</span></div>
+                      <div class="nk-tb-col tb-col-md"><span class="sub-text fw-bold text-soft">Judul masalah</span></div>
                       <div class="nk-tb-col nk-tb-col-tools text-right">
                           <div class="dropdown">
                               <a href="#" class="btn btn-xs btn-outline-light btn-icon dropdown-toggle" data-toggle="dropdown" data-offset="0,5"><em class="icon ni ni-plus"></em></a>
@@ -192,11 +192,19 @@
                       </div>
                   </div><!-- .nk-tb-item -->
                   @endforeach
-              </div><!-- .nk-tb-list -->
+                </div><!-- .nk-tb-list -->
+                @if($tasks->count() == 0)
+                <div class="d-flex align-items-center justify-content-center flex-column py-4">
+                  <img src="{{ asset('img/empty-task.webp') }}" alt="empty task" />
+                  <h5 class="text-soft">Laporan task Anda belum tersedia</h5>
+                </div>
+                @endif
           </div><!-- .card-inner -->
+          @if ($tasks->count() > 0)
           <div class="card-inner">
-            {{ $tasks->links('pagination::bootstrap-5') }}
+            {{ $tasks->links('pagination::bootstrap-4') }}
           </div><!-- .card-inner -->
+          @endif
       </div><!-- .card-inner-group -->
   </div><!-- .card -->
 </div><!-- .nk-block -->
