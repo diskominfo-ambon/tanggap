@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TaskListController;
 use App\Http\Controllers\TaskUpdatedController;
 use App\Http\Controllers\UploadedController;
+use App\Http\Controllers\TaskShowController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,4 +27,5 @@ Route::post('/upload', UploadedController::class)->name('upload');
 
 Auth::routes();
 
-// Route::get('/laporan/lihat/{slug}', TaskShowController::class)->name('task.show');
+Route::get('/laporan-saya', TaskListController::class)->name('task.list');
+// Route::get('/laporan-lihat/{slug}', TaskShowController::class)->name('task.show');

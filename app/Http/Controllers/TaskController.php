@@ -23,6 +23,15 @@ class TaskController extends Controller
       ->latest()
       ->get();
 
+    if (Auth::user()->hasRole(User::Government)) {
+      $tasks = Auth::user()
+      ->tasks()
+      ->with(['user', 'tags', 'replies.id'])
+      ->statusIn([Task::StatusBacklog, Task::StatusOnProgress, Task::StatusInReview])
+      ->latest()
+      ->get();
+    }
+
 
     return new JsonResponse(
       [

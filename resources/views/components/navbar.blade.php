@@ -1,13 +1,13 @@
-<div class="nk-header nk-header-fluid @role(\App\Models\User::Staff) 'bg-light'  @else 'is-theme' @endrole">
+<div class="nk-header nk-header-fluid @role(\App\Models\User::Staff)  @else is-theme @endrole">
   <div class="container-xl wide-xl">
       <div class="nk-header-wrap">
           <div class="nk-menu-trigger mr-sm-2 d-lg-none">
               <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em class="icon ni ni-menu"></em></a>
           </div>
           <div class="nk-header-brand">
-              <a href="html/index.html" class="logo-link">
-                  <img class="logo-light logo-img @role(\App\Models\User::Staff) 'is-white'  @else '' @endrole" src="{{ asset('/img/logo-kominfo.png') }}" srcset="{{ asset('/img/logo-kominfo.png') }} 2x" alt="logo">
-                  <img class="logo-dark logo-img @role(\App\Models\User::Staff) 'is-white'  @else '' @endrole" src="{{ asset('/img/logo-kominfo.png') }}" srcset="{{ asset('/img/logo-kominfo.png') }} 2x" alt="logo-dark">
+              <a href="{{ url()->previous() }}" class="logo-link">
+                  <img class="logo-light logo-img @role(\App\Models\User::Staff)  @else is-white @endrole" src="{{ asset('/img/logo-kominfo.png') }}" srcset="{{ asset('/img/logo-kominfo.png') }} 2x" alt="logo">
+                  <img class="logo-dark logo-img @role(\App\Models\User::Staff)  @else  is-white @endrole" src="{{ asset('/img/logo-kominfo.png') }}" srcset="{{ asset('/img/logo-kominfo.png') }} 2x" alt="logo-dark">
               </a>
           </div>
           <!-- .nk-header-brand -->
@@ -25,7 +25,7 @@
               </div>
               <ul class="nk-menu nk-menu-main ui-s2">
                   <li class="nk-menu-item">
-                      <a href="{{ route('government.task.home') }}" class="nk-menu-link">
+                      <a href="@role(\App\Models\User::SuperAdmin) '' @else {{ route('task.list') }} @endif" class="nk-menu-link">
                         <em class="icon ni ni-book"></em>  <span class="nk-menu-text">Task</span>
                       </a>
                   </li><!-- .nk-menu-item -->

@@ -12,11 +12,13 @@
       <div class="nk-block-head-content">
           <div class="toggle-wrap nk-block-tools-toggle">
               <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
+              @role(\App\Models\User::Government)
               <div class="toggle-expand-content" data-content="pageMenu">
                   <ul class="nk-block-tools g-3">
                       <li><a href="{{ route('government.task.new') }}" class="btn btn-white btn-outline-primary"><em class="icon ni ni-book"></em><span>Buat Task</span></a></li>
                   </ul>
               </div>
+              @endrole
           </div><!-- .toggle-wrap -->
       </div><!-- .nk-block-head-content -->
   </div><!-- .nk-block-between -->
@@ -170,7 +172,7 @@
                       </div>
 
                       <div class="nk-tb-col tb-col-lg">
-                          <span class="d-block tb-lead fw-bold fs-14px mb-1">
+                          <span class="d-block tb-lead fw-bold fs-14px">
                             {{ Str::of( $task->title)->ucfirst()->limit(35) }}
                           </span>
                           <span class="fw-normal fs-12px">Di tambahkan pada {{ $task->created_at }}</span> dan tangani <span class="fw-normal fs-12px">{{ $task->assignment()->created_at }}</span>

@@ -12,7 +12,7 @@ class HomeController extends Controller
   public function __invoke()
   {
 
-    $tasks = Auth::user()->getAssignments()->StatusIn([Task::StatusDone])->latest()->get();
+    $tasks = Auth::user()->assignments()->StatusIn([Task::StatusDone])->latest()->get();
 
     return view('government.home', compact('tasks'));
   }
