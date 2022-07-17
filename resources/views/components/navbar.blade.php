@@ -25,7 +25,7 @@
               </div>
               <ul class="nk-menu nk-menu-main ui-s2">
                   <li class="nk-menu-item">
-                      <a href="@role(\App\Models\User::SuperAdmin) '' @else {{ route('task.list') }} @endif" class="nk-menu-link">
+                      <a href="@role(\App\Models\User::SuperAdmin) {{ route('admin.task.home') }} @else {{ route('task.list') }} @endif" class="nk-menu-link">
                         <em class="icon ni ni-book"></em>  <span class="nk-menu-text">Task</span>
                       </a>
                   </li><!-- .nk-menu-item -->
@@ -36,7 +36,7 @@
                   </li><!-- .nk-menu-item -->
                   @role(\App\Models\User::SuperAdmin)
                   <li class="nk-menu-item">
-                    <a href="#" class="nk-menu-link">
+                    <a href="{{ route('admin.staff.home') }}" class="nk-menu-link">
                       <em class="icon ni ni-users"></em><span class="nk-menu-text">Staff Admin</span>
                     </a>
                   </li><!-- .nk-menu-item -->

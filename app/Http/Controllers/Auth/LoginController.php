@@ -44,18 +44,17 @@ class LoginController extends Controller
       $currentRole = Auth::user()->roles()->first();
       $to = "";
 
-      switch ($currentRole) {
+      switch ($currentRole->name) {
         case User::Government:
           $to = RouteServiceProvider::GovernmentHome;
           break;
         case User::Staff:
           $to = RouteServiceProvider::StaffHome;
           break;
-          $to = RouteServiceProvider::SuperAdminHome;
           default:
+          $to = RouteServiceProvider::SuperAdminHome;
           break;
       }
-
 
       return $to;
     }

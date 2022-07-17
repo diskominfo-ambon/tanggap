@@ -4,18 +4,23 @@
 @section('content')
 <div class="nk-content-body">
   <div class="content-page">
-      <div class="nk-block-head nk-block-head-lg wide-sm">
+      <div class="nk-block-head nk-block-head-lg d-flex justify-content-between">
           <div class="nk-block-head-content">
-              <h3 class="nk-block-title fw-normal">
-                <span class="text-primary">{{ $task->getStatusString }}</span> • {{ $task->title }}
-              </h3>
-              <div class="nk-block-des">
-                  <p class="lead">We are on a mission to make the web a better place. The following terms, as well as our Policy and Terms of Service, apply to all users.</p>
-                  <p class="text-soft ff-italic">
-                    Ditambahkan {{ $task->created_at }}
-                  </p>
-              </div>
+            <h3 class="nk-block-title fw-normal">
+              <span class="text-primary">{{ $task->getStatusString }}</span> •  {{ $task->title }}
+            </h3>
+            <div class="nk-block-des">
+                {{-- <p class="lead">We are on a mission to make the web a better place. The following terms, as well as our Policy and Terms of Service, apply to all users.</p> --}}
+                <p class="text-soft ff-italic">
+                  Ditambahkan {{ $task->created_at }}
+                </p>
+            </div>
           </div>
+          @role(\App\Models\User::SuperAdmin)
+          <div>
+            <a class="btn btn-primary" href="{{ route('admin.task.edit', $task->id) }}">Ubah status laporan</a>
+          </div>
+          @endrole
       </div><!-- .nk-block-head -->
       <div class="nk-block">
           <div class="card card-bordered">

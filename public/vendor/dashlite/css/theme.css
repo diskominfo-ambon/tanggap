@@ -125,9 +125,14 @@
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
   padding: .5rem .8rem;
+  background-color: white;
   margin-bottom: .5rem;
 }
 
 .content-problem p {
   font-size: 1rem;
+}
+
+.alert {
+  border-radius: 0;
 }

@@ -23,6 +23,12 @@
         <!-- wrap @s -->
         <div class="nk-wrap ">
           <x-navbar/>
+          @if (session('flash_message'))
+          <div class="alert alert-icon alert-primary" role="alert">
+              <em class="icon ni ni-alert-circle"></em>
+              {{ session('flash_message') }}
+          </div>
+          @endif
           <!-- content @s -->
           <div class="nk-content ">
               <div class="container wide-xl">

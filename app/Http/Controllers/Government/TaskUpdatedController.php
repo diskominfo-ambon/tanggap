@@ -23,7 +23,7 @@ class TaskUpdatedController extends Controller
     $task = Task::findOrFail($id);
 
     if ($task->status != Task::StatusBacklog) {
-      return Redirect::back()->with('flash', 'Task tidak dapat edit karna sudah ditinjau oleh admin');
+      return Redirect::back()->with('flash_message', 'Task tidak dapat edit karna sudah ditinjau oleh admin');
     }
 
     $task->title = $req->title;
@@ -32,11 +32,13 @@ class TaskUpdatedController extends Controller
     // tags
     $task->tags()->sync($tags);
 
-    // attachments
-    $files = $req->file('attachments');
-    $attachments = $this->eligiable($files);
+    if ($req->hasFile('attachments')) {
+      // attachments
+      $files = $req->file('attachments');
+      $attachments = $this->eligiable($files);
 
-    $task->attachments()->sync($attachments);
+      $task->attachments()->sync($attachments);
+    }
 
     return Redirect::route('government.home');
   }

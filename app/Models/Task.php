@@ -50,6 +50,8 @@ class Task extends Model
         return "Sedang ditanggapin oleh admin";
       case Task::StatusDone:
         return "Telah selesai";
+      case Task::StatusCreated:
+          return "Baru ditambahkan";
       default:
         return "Sedang ditangani";
     }
@@ -110,9 +112,11 @@ class Task extends Model
       ->withPivot(['id', 'created_at', 'updated_at']);
   }
 
-  public function assignment(): User
+  public function assignment(): User|null
   {
-    return $this->getAssignments()->first();
+    $assignment = $this->getAssignments()->first();
+    if (is_null($assignment)) return null;
+    return $assignment;
   }
 
 

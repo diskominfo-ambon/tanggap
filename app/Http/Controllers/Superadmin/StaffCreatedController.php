@@ -19,6 +19,6 @@ class StaffCreatedController extends Controller
 
     $user->assignRole(User::Staff);
 
-    return redirect()->route('super-admin.staff.home')->with('flash', 'Berhasil menambahkan staff');
+    return redirect()->route('admin.staff.home')->with('flash_message', 'Berhasil menambahkan staff');
   }
 }

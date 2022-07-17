@@ -97,6 +97,7 @@
     const BoardInReview = "_to_review";
     const HttpMethod = 'GET'
     const GovernmentRole = 'government';
+    const SuperAdminRole = 'superadmin';
 
     const Endpoint = window.location.origin.trimEnd('/') + '/gettask';
     let boardStatus = {
@@ -181,7 +182,7 @@
           dropEl: function (el, target, source, sibling) {
             const board = el.children[0].dataset;
 
-            if (board.status == StatusInReview) {
+            if (_CurrentRole != SuperAdminRole && board.status == StatusInReview) {
               Swal.fire({
                 title: '<strong>🔎 Task sedang ditinjauan</strong>',
                 icon: 'info',

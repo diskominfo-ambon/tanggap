@@ -13,7 +13,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,34 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        $rules = [
+          'name' => 'required',
+          'email' => 'required|email',
+          'employee_degree' => 'required',
+          'employee_type' => 'required'
         ];
+
+        if ($this->isMethod('post')) {
+          $rules['password'] = 'required';
+        }
+
+        return $rules;
+    }
+
+
+    public function messages() {
+      return [
+        'required' => ':attribute wajib dimasukan'
+      ];
+    }
+
+    public function attributes() {
+      return [
+        'name' => 'Nama',
+        'email' => 'Alamat email',
+        'password' => 'Kata sandi',
+        'employee_type' => 'Jabatan',
+        'employee_degree' => 'Pendidikan terakhir'
+      ];
     }
 }

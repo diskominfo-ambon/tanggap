@@ -45,6 +45,6 @@ class TaskCreatedController extends Controller
 
 
 
-    return redirect()->route('government.task.home')->with('flash', __('Berhasil menambahkan task baru'));
+    return redirect()->route('government.task.home')->with('flash_message', __('Berhasil menambahkan task baru'));
   }
 }

@@ -32,6 +32,13 @@ class TaskController extends Controller
       ->get();
     }
 
+    if (Auth::user()->hasRole(User::SuperAdmin)) {
+      $tasks = Task::with(['user', 'tags', 'replies.id'])
+      ->statusIn([Task::StatusBacklog, Task::StatusOnProgress, Task::StatusInReview])
+      ->latest()
+      ->get();
+    }
+
 
     return new JsonResponse(
       [
