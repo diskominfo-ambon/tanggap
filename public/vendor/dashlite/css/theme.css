@@ -2,9 +2,10 @@
   font-family: 'Nunito';
 }
 
-.nk-header-brand .logo-img {
+.nk-header-brand .logo-img.is-white {
   filter: brightness(100);
 }
+
 
 @media (min-width: 992px) {
 

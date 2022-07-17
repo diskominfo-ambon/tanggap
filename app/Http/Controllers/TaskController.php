@@ -9,16 +9,19 @@ use Illuminate\Http\Response;
 
 use App\Models\User;
 use App\Models\Task;
-
+use Illuminate\Database\Eloquent\Builder;
 
 class TaskController extends Controller
 {
   public function __invoke()
   {
-    $user =  Auth::user();
-    // $tasks = $user->getAssignments()->greaterThan(Task::StatusCreated)->latest();
-    $tasks = Task::with(['user', 'tags', 'replies.id'])->greaterThan(Task::StatusCreated)->latest()->get();
 
+    $tasks = Auth::user()
+      ->assignments()
+      ->with(['user', 'tags', 'replies.id'])
+      ->statusIn([Task::StatusBacklog, Task::StatusOnProgress, Task::StatusInReview])
+      ->latest()
+      ->get();
 
 
     return new JsonResponse(

@@ -11,7 +11,7 @@ class TaskController extends Controller
 {
   public function __invoke()
   {
-    $tasks = Auth::user()->getAssignments()
+    $tasks = Auth::user()->assignments()
       ->StatusIn([Task::StatusCreated, Task::StatusDone])
       ->latest()
       ->paginate(20);

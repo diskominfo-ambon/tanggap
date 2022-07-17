@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-  public function index() {
-    $tasks = Auth::user()->getAssignments()->get('id');
+  public function __invoke()
+  {
+
+    $tasks = Auth::user()->assignments()->select('tasks.id')->get();
 
     return view('staff.home', compact('tasks'));
   }

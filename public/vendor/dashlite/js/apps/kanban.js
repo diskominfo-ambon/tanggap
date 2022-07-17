@@ -32,6 +32,8 @@
         `)
       }
 
+      const content = task.content;
+
       return {
         title:`
         <div class="kanban-item-title" data-status="${status}" data-task="${task.id}" data-slug="${task.slug}">
@@ -59,7 +61,7 @@
               </div>
         </div>
         <div class="kanban-item-text">
-            <p>${capfirst(task.content, 100)}</p>
+            <p>${capfirst(content, 100)}</p>
         </div>
         <ul class="kanban-item-tags">
           ${tags}
@@ -204,8 +206,6 @@
               statusSource: parseInt(board.status),
               statusTarget: boardStatus[boardEl.dataset.id]
             };
-
-            console.log(data, boardEl.dataset);
 
             $.ajax({
               url: Endpoint,

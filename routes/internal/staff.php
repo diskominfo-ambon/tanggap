@@ -4,4 +4,5 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Staff\HomeController;
 
 
-// Route::get('/', HomeController::class)->name('staff.home');
+Route::get('/staff', HomeController::class)->name('staff.home');
+

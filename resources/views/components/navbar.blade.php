@@ -1,4 +1,4 @@
-<div class="nk-header nk-header-fluid is-theme">
+<div class="nk-header nk-header-fluid @role(\App\Models\User::Staff) 'bg-light'  @else 'is-theme' @endrole">
   <div class="container-xl wide-xl">
       <div class="nk-header-wrap">
           <div class="nk-menu-trigger mr-sm-2 d-lg-none">
@@ -6,8 +6,8 @@
           </div>
           <div class="nk-header-brand">
               <a href="html/index.html" class="logo-link">
-                  <img class="logo-light logo-img" src="{{ asset('/img/logo-kominfo.png') }}" srcset="{{ asset('/img/logo-kominfo.png') }} 2x" alt="logo">
-                  <img class="logo-dark logo-img" src="{{ asset('/img/logo-kominfo.png') }}" srcset="{{ asset('/img/logo-kominfo.png') }} 2x" alt="logo-dark">
+                  <img class="logo-light logo-img @role(\App\Models\User::Staff) 'is-white'  @else '' @endrole" src="{{ asset('/img/logo-kominfo.png') }}" srcset="{{ asset('/img/logo-kominfo.png') }} 2x" alt="logo">
+                  <img class="logo-dark logo-img @role(\App\Models\User::Staff) 'is-white'  @else '' @endrole" src="{{ asset('/img/logo-kominfo.png') }}" srcset="{{ asset('/img/logo-kominfo.png') }} 2x" alt="logo-dark">
               </a>
           </div>
           <!-- .nk-header-brand -->
