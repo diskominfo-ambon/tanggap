@@ -217,7 +217,10 @@
                   position: 'top-center'
                 });
 
-                console.log(res);
+                // change board status
+                board.status = data.statusTarget;
+
+                console.log({data, board});
               },
               error: function () {
                 NioApp.Toast('Gagal mengubah status.', 'error', {

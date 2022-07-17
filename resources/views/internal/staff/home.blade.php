@@ -12,13 +12,12 @@
       </div><!-- .nk-block-head-content -->
       <div class="nk-block-head-content">
         <div class="toggle-wrap nk-block-tools-toggle">
-            <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
-            <div class="toggle-expand-content" data-content="pageMenu">
-                <ul class="nk-block-tools g-3">
-                    <li><a href="{{ route('government.task.new') }}" class="btn btn-white btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Tambahkan task"><em class="icon ni ni-book"></em><span>Tambahkan</span></a></li>
-                    <li><a href="#" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Filter papan"><em class="icon ni ni-filter"></em></a></li>
-                </ul>
-            </div>
+          <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
+          <div class="toggle-expand-content" data-content="pageMenu">
+              <ul class="nk-block-tools g-3">
+                <li><a href="#" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Filter papan"><em class="icon ni ni-filter"></em></a></li>
+              </ul>
+          </div>
         </div><!-- .toggle-wrap -->
     </div><!-- .nk-block-head-content -->
   </div><!-- .nk-block-between -->
