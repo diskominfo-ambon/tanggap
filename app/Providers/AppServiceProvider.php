@@ -25,10 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $currentUser = Auth::user();
-        $hasCurrentUser = Auth::check();
 
-        View::share('currentUser', $currentUser);
-        View::share('hasCurrentUser', $hasCurrentUser);
     }
 }
