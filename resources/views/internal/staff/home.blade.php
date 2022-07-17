@@ -5,7 +5,7 @@
 <div class="nk-block-head nk-block-head-sm">
   <div class="nk-block-between">
       <div class="nk-block-head-content">
-        <h3 class="nk-block-title page-title">Beranda papan kerja Anda</h3>
+        <h5 class="nk-block-title page-title"><span class="text-primary">Staff</span> • Beranda papan kerja Anda</h5>
         <div class="nk-block-des text-soft">
             <p>Hai, Azman Abdullah selamat datang kembali di beranda kerja Anda. </p>
         </div>
