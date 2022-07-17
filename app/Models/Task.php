@@ -114,4 +114,13 @@ class Task extends Model
   {
     return $this->getAssignments()->first();
   }
+
+
+  public function attachments(): MorphToMany {
+    return $this->morphToMany(
+      Attachment::class,
+      'record', // model
+      'model_has_attachments'
+    );
+  }
 }

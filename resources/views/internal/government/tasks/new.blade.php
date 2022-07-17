@@ -71,6 +71,26 @@
                           @enderror
                       </div>
 
+                      <div class="nk-block-head mt-5">
+                        <div class="nk-block-head-content">
+                            <h6 class="title nk-block-title">Unggah</h6>
+                            <div class="nk-block-des">
+                                <p>Tambahkan unggahan berkas dokumen jika perlu.</p>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="mb-5">
+                        <div class="form-control-wrap">
+                          <div class="custom-file">
+                              <input type="file" multiple name="attachments[]" accept="application/pdf" class="custom-file-input" id="customFile">
+                              <label class="custom-file-label" for="customFile">Boleh lebih dari 1 berkas</label>
+                          </div>
+                        </div>
+                          @error('attachment')
+                          <span class="d-block text-danger mb-3 mt-1">{{ $message }}</span>
+                          @enderror
+                      </div>
+
                       <button class="btn btn-primary ">Tambahkan task</button>
                   </form>
 
@@ -86,6 +106,7 @@
 @section('script')
 {{-- <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/ckeditor5-build-classic-custom-simpleuploadadapter@28.0.0/build/ckeditor.min.js"></script>
+
 <script>
   $(document).ready(() => {
     const STORAGE_ENDPOINT = window.location.origin + "/upload";

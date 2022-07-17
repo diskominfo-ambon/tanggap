@@ -7,6 +7,7 @@ use App\Http\Requests\TaskRequest;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Arr;
 
 class TaskUpdatedController extends Controller
 {
@@ -28,8 +29,15 @@ class TaskUpdatedController extends Controller
     $task->title = $req->title;
     $task->content = $req->content;
     $task->save();
-
+    // tags
     $task->tags()->sync($tags);
+
+    // attachments
+    $files = $req->file('attachments');
+    $attachments = $this->eligiable($files);
+    $attachmentIds = Arr::pluck($attachments, 'id');
+
+    $task->attachments()->sync($attachmentIds);
 
     return Redirect::route('government.home');
   }
