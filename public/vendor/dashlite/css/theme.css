@@ -116,3 +116,18 @@
 .page-title {
   font-size: 1.5rem;
 }
+
+.list-group {
+  list-style: none !important;
+}
+
+.list-group li {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  padding: .5rem .8rem;
+  margin-bottom: .5rem;
+}
+
+.content-problem p {
+  font-size: 1rem;
+}

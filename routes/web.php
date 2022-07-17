@@ -28,4 +28,4 @@ Route::post('/upload', UploadedController::class)->name('upload');
 Auth::routes();
 
 Route::get('/laporan-saya', TaskListController::class)->name('task.list');
-// Route::get('/laporan-lihat/{slug}', TaskShowController::class)->name('task.show');
+Route::get('/laporan-lihat/{slug}', TaskShowController::class)->name('task.show');

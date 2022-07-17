@@ -175,7 +175,7 @@
           boards: [...kanbanBoards],
           click: function (el) {
             const board = el.children[0].dataset;
-            const Endpoint = window.location.href + "/laporan/lihat/" + board.slug;
+            const Endpoint = window.location.origin + "/laporan-lihat/" + board.slug;
             window.location.href  = Endpoint;
           },
           dropEl: function (el, target, source, sibling) {
