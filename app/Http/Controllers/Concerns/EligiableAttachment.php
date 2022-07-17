@@ -7,22 +7,24 @@ use App\Models\Attachment;
 trait EligiableAttachment {
 
   public function eligiable(array $files): array {
-    // attachments store temp
-    $data = [];
+    // attachment ids.
+    $IDs = [];
 
     foreach ($files as $file) {
       $path = $file->store('uploaded', ['disk' => 'public']);
 
-      $data[] = [
+      $data = [
         'name' => $file->getClientOriginalName(),
         'type' => $file->getClientOriginalExtension(),
         'path' => $path,
         'size' => $file->getSize()
       ];
+
+      $attachment = Attachment::create($data);
+      $IDs[] = $attachment->id;
     }
 
-    $attachments = Attachment::insert($data);
 
-    return $attachments;
+    return $IDs;
   }
 }

@@ -40,9 +40,8 @@ class TaskCreatedController extends Controller
     // attachments
     $files = $req->file('attachments');
     $attachments = $this->eligiable($files);
-    $attachmentIds = Arr::pluck($attachments, 'id');
 
-    $task->attachments()->attach($attachmentIds);
+    $task->attachments()->attach($attachments);
 
 
 

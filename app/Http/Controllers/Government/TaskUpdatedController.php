@@ -35,9 +35,8 @@ class TaskUpdatedController extends Controller
     // attachments
     $files = $req->file('attachments');
     $attachments = $this->eligiable($files);
-    $attachmentIds = Arr::pluck($attachments, 'id');
 
-    $task->attachments()->sync($attachmentIds);
+    $task->attachments()->sync($attachments);
 
     return Redirect::route('government.home');
   }
